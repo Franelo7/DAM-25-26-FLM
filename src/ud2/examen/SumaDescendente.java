@@ -4,17 +4,31 @@ import java.util.Scanner;
 
 public class SumaDescendente {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Introduce un número: ");
-        int numero = sc.nextInt();
-        System.out.println(sumaDescendente(numero));
+        int n = 4578; // Scanner
+        System.out.println(sumaDescendente3(n));
+    }
+
+    static double sumaDescendente3(int n) {
+        int suma = 0;
+        for (int i = 10; i <= n; i *= 10) {
+            suma += n % i;
+        }
+        return suma + n;
 
     }
 
-    static int sumaDescendente(int numero) {
-        int suma = numero;
-        for (int i = 10; i <= numero; i *= 10) {
-            suma += numero % i;
+    static void sumaDescendente2(int n) {
+        int suma = 0;
+        for (int i = 10; i <= n; i *= 10) {
+            suma += n % i;
+        }
+        System.out.println(n + suma);
+    }
+
+    private static int sumaDescendente(int n) {
+        int suma = 0;
+        for (int i = 10; i <= n; i *= 10) {
+            suma += n % i;
         }
         return suma;
     }

@@ -69,7 +69,7 @@ public class Radar {
         System.out.println("Estadísticas finales:");
         System.out.println("---------------------");
         System.out.println("Total coches controlados: " + cochesControlados);
-        System.out.printf("Velocidad máxima fue de %.2f Kmh %n", velMediaTotal / cochesControlados);
+        System.out.printf("Velocidad media fue de %.2f Kmh %n", velMediaTotal / cochesControlados);
         System.out.printf("Velocidad máxima fue de %.2f Kmh %n", velMax);
         System.out.println("Multas impuestas: " + multasImpuestas);
     }
