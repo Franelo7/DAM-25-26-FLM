@@ -1,24 +1,23 @@
 package ud3.arrays;
 
+import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 public class GeneraArrayAleatorio {
     public static void main(String[] args) {
-        int cantidad = 10;
-        int[] a = arrayAleatorio(cantidad);
-        for (int i = 0; i < cantidad; i++) {
-            System.out.println(a[i]);
-        }
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(Arrays.toString(arrayAleatorio(n)));
     }
 
     static int[] arrayAleatorio(int n) {
-        Random rd = new Random();
-        int r;
-        int[] array = new int[n];
-        for (int i = 0; i < n; i++) {
-            r = rd.nextInt(19) - 9;
-            array[i] = r;
+        int[] t = new int[n];
+        Random rnd = new Random();
+        for (int i = 0; i < t.length; i++) {
+            int random = rnd.nextInt(19) - 9;
+            t[i] = random;
         }
-        return array;
+        return t;
     }
 }

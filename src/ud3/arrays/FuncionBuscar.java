@@ -1,20 +1,17 @@
 package ud3.arrays;
 
-/**
- * @author Fran
- */
-
 public class FuncionBuscar {
-    static int buscar(int t[], int clave) {
-        boolean esClave = false;
-        int posicion = -1;
-        for (int j = 0; j < t.length && esClave == false; j++) {
-            if (t[j] == clave) {
-                esClave = true;
-                posicion = j;
-            }
-        }
-        return posicion;
+    public static void main(String[] args) {
+        int[] t = { 1, 2, 3, 10, 5, 6, 10, 8, 9, 10 };
+        System.out.println(buscar(t, 3));
     }
 
+    static int buscar(int t[], int clave) {
+        for (int i = 0; i < t.length; i++) {
+            if (t[i] == clave) {
+                return i;
+            }
+        }
+        return -1;
+    }
 }

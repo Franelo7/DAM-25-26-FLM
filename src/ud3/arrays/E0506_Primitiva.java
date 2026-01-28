@@ -1,37 +1,36 @@
 package ud3.arrays;
 
 import java.util.Arrays;
+import java.util.Random;
 
 public class E0506_Primitiva {
+    public static void main(String[] args) {
+        int[] apuesta = { 3, 4, 5, 3, 1, 5 };
+        int[] ganadora = tablaAleatoria(1, 99, 6);
+        System.out.println(numAciertos(apuesta, ganadora));
+    }
 
     static int[] tablaAleatoria(int numInicio, int numFin, int longitud) {
-        int[] tabla = new int[longitud];
-        for (int i = 0; i < longitud; i++) {
-            tabla[i] = (int) (Math.random() * (numFin - numInicio - 1)) + numInicio;
+        Random rnd = new Random();
+        int t[] = new int[longitud];
+        for (int i = 0; i < t.length; i++) {
+            double random = Math.random() * (numFin - numInicio - 1) + numInicio;
+            t[i] = (int) random;
         }
-        return tabla;
-
+        return t;
     }
 
-    static int numAciertos(int[] apuesta, int[] ganador) {
-        int aciertos = 0;
-        for (int num : apuesta) {
-            int pos = Arrays.binarySearch(ganador, num);
-            if (pos >= 0) {
-                aciertos++;
+    static int numAciertos(int[] apuesta, int[] ganadora) {
+        int contador = 0;
+        Arrays.sort(ganadora);
+        for (int i = 0; i < ganadora.length; i++) {
+            for (int j = i; j < ganadora.length; j++) {
+                if (apuesta[i] == ganadora[j]) {
+                    contador++;
+                }
             }
-
         }
-        return aciertos;
-    }
-
-    public static void main(String[] args) {
-        int[] apuesta = { 7, 10, 11, 24, 6, 13 };
-        int[] resultado = tablaAleatoria(1, 49, 6);
-        Arrays.sort(resultado);
-        System.out.println("Salieron los numeros: " + Arrays.toString(resultado));
-        System.out.println("Aciertos " + numAciertos(apuesta, resultado));
-
+        return contador;
     }
 
 }

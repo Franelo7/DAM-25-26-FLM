@@ -1,27 +1,18 @@
-/**
- * @author Fran
- */
 package ud3.strings;
-
-import java.util.Scanner;
 
 public class E0604 {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Introduce una frase por teclado: ");
-        String cad1 = sc.nextLine();
-        sc.close();
-        contarEspacios(cad1);
-       char cad2 = cad1.charAt(2);
-       System.out.println(cad2);
-
+        String cad = "cuantos pelos tengo en el culo";
+        System.out.println(contarEspacios(cad));
     }
 
-    public static void contarEspacios(String cad1) {
-        int n = cad1.length();
-        String cad2 = cad1.replaceAll(" ", "");
-        int n2 = cad2.length();
-        int total = n - n2;
-        System.out.println("El número de espacios en blanco es de: " + total);
+    static int contarEspacios(String cad) {
+        int contador = 0;
+        for (int i = 0; i < cad.length(); i++) {
+            if (Character.isWhitespace(cad.charAt(i))) {
+                contador++;
+            }
+        }
+        return contador;
     }
 }

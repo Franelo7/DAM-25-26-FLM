@@ -4,6 +4,10 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class EP0512_Desordenar {
+    public static void main(String[] args) {
+        int[] t = { 1, 2, 3, 4, 5, 6 };
+        desordenar(t);
+    }
 
     static void desordenar(int t[]) {
         Random rnd = new Random();
@@ -11,15 +15,8 @@ public class EP0512_Desordenar {
             int rand = rnd.nextInt(t.length);
             int aux = t[i];
             t[i] = t[rand];
-            t[rand] = aux;
-
+            t[rand]= aux;
         }
-
-    }
-
-    public static void main(String[] args) {
-        int[] t = { 1, 2, 3, 4 };
-        desordenar(t);
-        System.err.println(Arrays.toString(t));
+        System.out.println(Arrays.toString(t));
     }
 }

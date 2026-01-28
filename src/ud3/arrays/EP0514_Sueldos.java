@@ -4,55 +4,54 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class EP0514_Sueldos {
-
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        double[] sueldos = new double[0];
+        double[] t1 = encuesta();
+        maxMinMedia(t1);
 
-        System.out.print("Introduce el sueldo: ");
-        double sueldo = sc.nextDouble();
-        while (sueldo != -1) {
-            // Procesar entrada: Añadir el sueldo al array
-            sueldos = Arrays.copyOf(sueldos, sueldos.length + 1);
-            sueldos[sueldos.length - 1] = sueldo;
-            // Leer siguiente
-            System.out.print("Introduce el sueldo: ");
-            sueldo = sc.nextDouble();
-        }
-        if (sueldo > 0) {
-
-            // ordenar sueldos
-            Arrays.sort(sueldos);
-
-            System.out.println();
-
-            for (int i = sueldos.length - 1; i >= 0; i--) {
-                System.out.print(sueldos[i] + " ");
-            }
-
-            System.out.println();
-
-            System.out.println("Máximo sueldo " + sueldos[sueldos.length - 1]);
-            System.out.println("Mínimo sueldo " + sueldos[0]);
-
-            double suma = 0;
-            for (double s : sueldos) {
-                suma += s;
-            }
-            double media = suma / sueldos.length;
-            System.out.println("Media de sueldos: " + media);
-
-            int contSueldosMayoresMedias = 0;
-            int contSueldosMenoresMedias = 0;
-            for (double s : sueldos) {
-                if (s > media)
-                    contSueldosMayoresMedias++;
-                else if (s < media)
-                    contSueldosMenoresMedias++;
-            }
-            System.out.println("Número de sueldos por encima de la media: " + contSueldosMayoresMedias);
-            System.out.println("Número de sueldos por debajo de la media: " + contSueldosMenoresMedias);
-        }
     }
 
+    static void maxMinMedia(double[] t1) {
+        Arrays.sort(t1);
+        double suma = 0;
+
+        int contadorPorDebajo = 0;
+        int contadorPorEncima = 0;
+
+        for (int i = 0; i < t1.length; i++) {
+            suma += t1[i];
+        }
+        double media = suma / t1.length;
+        for (int i = 0; i < t1.length; i++) {
+
+            if (t1[i] > media) {
+                contadorPorEncima++;
+            } else if (t1[i] < media) {
+                contadorPorDebajo++;
+            }
+
+        }
+        System.out.println("El sueldo máximo es: " + t1[t1.length - 1]);
+        System.out.println("El sueldo mínimo es: " + t1[0]);
+        System.out.println("La media de sueldos es de: " + media);
+        System.out.println("Hay un total de " + contadorPorEncima + " sueldos por encima de la media");
+        System.out.println("Hay un total de " + contadorPorDebajo + " sueldos por debajo de la media");
+    }
+
+    static double[] encuesta() {
+        Scanner sc = new Scanner(System.in);
+        boolean iniciar = true;
+        double sueldo;
+        double[] t = new double[0];
+        while (iniciar) {
+            System.out.println("Introduce tu sueldo (-1 para salir): ");
+            sueldo = sc.nextDouble();
+            if (sueldo == -1) {
+                iniciar = false;
+            } else {
+                t = Arrays.copyOf(t, t.length + 1);
+                t[t.length - 1] = sueldo;
+            }
+        }
+        return t;
+    }
 }

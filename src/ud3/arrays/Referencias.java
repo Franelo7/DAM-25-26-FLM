@@ -1,15 +1,13 @@
 package ud3.arrays;
-/**
- * Fran
- */
+
 public class Referencias {
     public static void main(String[] args) {
-        int[] tabla1 = new int[10];
-        int[] tabla2 = tabla1;
-        int[] tabla3 = tabla1;
-        
-        System.out.println(tabla1);
-        System.out.println(tabla2);
-        System.out.println(tabla3);
+        int[] t1 = new int[10];
+        int[] t2 = t1;
+        int[] t3 = t1;
+
+        System.out.println(t1);
+        System.out.println(t2);
+        System.out.println(t3);
     }
 }
