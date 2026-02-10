@@ -10,6 +10,18 @@ public class Alumno {
     LocalDate fechaNacimiento;
     double notaProgramacion;
     double notaContornos;
+    private static String centroEducativo = "IES Chan do Monte";
+
+    public static void setCentroEducativo(String nuevoCentro) {
+        if (nuevoCentro != null && !nuevoCentro.isEmpty())
+            centroEducativo = nuevoCentro;
+    }
+
+    
+    public static String getCentroEducativo() {
+        return centroEducativo;
+    }
+
 
     public void mostrar() {
         System.out.println("Ficha de Alumno/a");
@@ -25,130 +37,40 @@ public class Alumno {
         System.out.println("Nota media: " + ((notaProgramacion + notaContornos) / 2));
     }
 
+    public void getIniciales() {
+        String inicales = nombre.substring(0, 1) + apellido1.substring(0, 1)
+                + apellido2.substring(0, 1);
+        System.out.println(inicales.toUpperCase());
+    }    
+
     public String getUsername() {
-        String usuario = "";
-        nombre = nombre.toLowerCase();
-        apellido1 = apellido1.toLowerCase();
-        apellido2 = apellido2.toLowerCase();
+        // Genera el nombre de usuario
+        String username = "";
+        username += nombre.charAt(0);
 
-        if (nombre.charAt(0) == 'ñ' || nombre.charAt(0) == 'á' || nombre.charAt(0) == 'é' || nombre.charAt(0) == 'í'
-                || nombre.charAt(0) == 'ó' || nombre.charAt(0) == 'ú' || nombre.charAt(0) == 'ü') {
-            switch (nombre.charAt(0)) {
-                case 'ñ':
-                    usuario += 'n';
-                    break;
-                case 'á':
-                    usuario += 'a';
-                    break;
-                case 'é':
-                    usuario += 'é';
-                    break;
-                case 'í':
-                    usuario += 'í';
-                    break;
-                case 'ó':
-                    usuario += 'o';
-                    break;
-                case 'ú':
-                    usuario += 'u';
-                    break;
-                case 'ü':
-                    usuario += 'u';
-                    break;
-                default:
-                    break;
-            }
-        } else {
-            usuario += nombre.charAt(0);
-        }
-        int tamaño1 = apellido1.length();
-        int tamaño2 = apellido2.length();
-        if (tamaño1 > 3) {
-            tamaño1 = 4;
-        } else {
-            tamaño1 = apellido1.length();
-        }
-        if (tamaño2 > 3) {
-            tamaño2 = 4;
-        } else {
-            tamaño2 = apellido2.length();
-        }
-        for (int i = 0; i < tamaño1; i++) {
-            if (apellido1.charAt(i) == 'ñ' || apellido1.charAt(i) == 'á' || apellido1.charAt(i) == 'é'
-                    || apellido1.charAt(i) == 'í'
-                    || apellido1.charAt(i) == 'ó' || apellido1.charAt(i) == 'ú' || apellido1.charAt(i) == 'ü') {
-                switch (apellido1.charAt(i)) {
-                    case 'ñ':
-                        usuario += 'n';
-                        break;
-                    case 'á':
-                        usuario += 'a';
-                        break;
-                    case 'é':
-                        usuario += 'é';
-                        break;
-                    case 'í':
-                        usuario += 'í';
-                        break;
-                    case 'ó':
-                        usuario += 'o';
-                        break;
-                    case 'ú':
-                        usuario += 'u';
-                        break;
-                    case 'ü':
-                        usuario += 'u';
-                        break;
-                    default:
-                        break;
-                }
-
-            } else if (Character.isWhitespace(apellido2.charAt(i))) {
-                break;
-            } else {
-                usuario += apellido1.charAt(i);
-            }
-
-        }
-        for (int i = 0; i < tamaño2; i++) {
-            if (apellido2.charAt(i) == 'ñ' || apellido2.charAt(i) == 'á' || apellido2.charAt(i) == 'é'
-                    || apellido2.charAt(i) == 'í'
-                    || apellido2.charAt(i) == 'ó' || apellido2.charAt(i) == 'ú' || apellido2.charAt(i) == 'ü') {
-                switch (apellido2.charAt(i)) {
-                    case 'ñ':
-                        usuario += 'n';
-                        break;
-                    case 'á':
-                        usuario += 'a';
-                        break;
-                    case 'é':
-                        usuario += 'é';
-                        break;
-                    case 'í':
-                        usuario += 'í';
-                        break;
-                    case 'ó':
-                        usuario += 'o';
-                        break;
-                    case 'ú':
-                        usuario += 'u';
-                        break;
-                    case 'ü':
-                        usuario += 'u';
-                        break;
-                    default:
-                        break;
-                }
-
-            } else if (Character.isWhitespace(apellido2.charAt(i))) {
-                break;
-            } else {
-                usuario += apellido2.charAt(i);
-            }
-
+        int i = 0;
+        while (i < apellido1.length() && i < 4 && apellido1.charAt(i) != ' ') {
+            username += apellido1.charAt(i);
+            i++;
         }
 
-        return usuario;
+        i = 0;
+        while (i < apellido2.length() && i < 4 && apellido2.charAt(i) != ' ') {
+            username += apellido2.charAt(i);
+            i++;
+        }
 
+        username = username.toLowerCase();
+
+        username = username.replace('á', 'a');
+        username = username.replace('é', 'e');
+        username = username.replace('í', 'i');
+        username = username.replace('ó', 'o');
+        username = username.replace('ú', 'u');
+        username = username.replace('ü', 'u');
+        username = username.replace('ñ', 'n');
+
+        return username;
     }
+
 }

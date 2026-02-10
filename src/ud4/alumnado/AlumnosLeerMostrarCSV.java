@@ -23,12 +23,15 @@ public class AlumnosLeerMostrarCSV {
             alumnos[i].notaContornos = Double.parseDouble(atributos[5]);
         }
 
-        System.out.println("\n\nLISTADO DE ALUMNOS");
-        System.out.println("==================\n");
+
+        Alumno.setCentroEducativo("");
+
+        System.out.println("\n\nLISTADO DE ALUMNOS del " + Alumno.getCentroEducativo());
+        System.out.println("==================================\n");
         for (Alumno alumno : alumnos) {
             //AlumnoLeerMostrar.mostrarAlumno(alumno);
-            alumno.mostrar();
-            System.out.println(alumno.getUsername());
+            //alumno.mostrar();
+            alumno.getIniciales();
             System.out.println();
         }
 

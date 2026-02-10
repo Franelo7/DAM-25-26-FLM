@@ -12,16 +12,16 @@ public class PreguntaMasDificil {
     }
 
     static double mediaPreguntaMasDificil(double[][] notas) {
-        double[] medias = new double[4];
+        double[] medias = new double[notas.length - 1];
         int h = 0;
         for (int i = 0; i < notas.length - 1; i++) {
-            for (int j = 0; j < 5; j++) {
+            for (int j = 0; j < notas.length; j++) {
                 medias[i] += notas[j][h];
             }
             h++;
         }
         Arrays.sort(medias);
-        double mediaMasBaja = medias[0] / 5;
+        double mediaMasBaja = medias[0] / notas.length;
         return mediaMasBaja;
     }
 }
