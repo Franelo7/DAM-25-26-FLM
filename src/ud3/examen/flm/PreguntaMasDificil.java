@@ -16,7 +16,7 @@ public class PreguntaMasDificil {
         int h = 0;
         for (int i = 0; i < notas.length - 1; i++) {
             for (int j = 0; j < notas.length; j++) {
-                medias[i] += notas[j][h];
+                medias[i] += notas[j][i];
             }
             h++;
         }
