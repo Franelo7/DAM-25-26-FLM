@@ -3,7 +3,7 @@ package ud4.alumnado;
 
 import java.util.Arrays;
 
-import ud3.strings.Util;
+import ud3.strings.Util.Util;
 
 public class Pregunta {
 

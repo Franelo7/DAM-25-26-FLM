@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 
-import ud3.strings.Util;
+import ud3.strings.Util.Util;
 
 public class Alumno {
     String nombre;

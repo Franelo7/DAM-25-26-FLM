@@ -10,7 +10,7 @@ public class E0706 {
         int minutos = sc.nextInt();
         int segundos = sc.nextInt();
         System.out.println("Introduce el número n de horas siguientes que inrán incrementándose segundo a segundo:");
-        int n = sc.nextInt();
+        int n = sc.nextInt() * 3600;
 
         Hora hora = new Hora(horas, minutos, segundos);
 
