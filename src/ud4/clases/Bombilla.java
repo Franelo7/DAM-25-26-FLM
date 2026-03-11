@@ -37,7 +37,7 @@ public class Bombilla {
         Bombilla b1 = new Bombilla();
 
         b1.encender();
-        Bombilla.encenderInterruptorGeneral();
+        Bombilla.apagarInterruptorGeneral();
         
         System.out.println("Interruptor General encendido?: " + Bombilla.interruptorGeneralEncendido());      
         System.out.println("Interruptor de la bombilla encendido?: " + b1.getInterruptor());        
