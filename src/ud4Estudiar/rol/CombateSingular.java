@@ -39,9 +39,8 @@ public class CombateSingular {
 
         // Combate por turnos
         while (atacante.estaVivo() && defensor.estaVivo()) {
-            int dano = atacante.atacar(defensor);
+            atacante.atacar(defensor);
             System.out.println(); // salto de línea para claridad
-
             // Intercambiar roles
             Personaje temp = atacante;
             atacante = defensor;

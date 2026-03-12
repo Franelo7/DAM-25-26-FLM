@@ -142,6 +142,36 @@ public class Personaje {
         return dano;
     }
 
+    public int atacar(Monstruo m) {
+        int nAtaque = rnd.nextInt(100) + 1 + this.fuerza;
+        int nDefensa = rnd.nextInt(100) + 1 + m.defensa;
+        System.out.println(this.nombre + "(" + this.pvActual + ") ataca a "
+                + m.nombre + "(" + m.pvActual + ")");
+
+        // Calcular daño
+        int dano = nAtaque - nDefensa;
+
+        if (dano <= 0) {
+            System.out.println("El ataque falla o es esquivado");
+            return 0;
+        }
+
+        // Limitar daño a la vida restante del enemigo
+        if (dano > m.pvActual) {
+            dano = m.pvActual;
+        }
+
+        m.perderVida(dano);
+
+        System.out.println("Daño realizado: " + dano);
+
+        if (!m.estaVivo()) {
+            System.out.println(m.nombre + " ha muerto. Ha ganado " + this.nombre);
+        }
+
+        return dano;
+    }
+
     public void mostrar() {
 
         System.out.println("===== PERSONAJE =====");
