@@ -40,12 +40,7 @@ public class Caja {
     public String toString() {
         // @ Detallar: No mostrar etiquetas = null
         return "Caja [ancho=" + ancho + ", alto=" + alto + ", fondo=" + fondo + ", unidad=" + unidad + ", etiqueta="
-                + etiqueta + "]" + getVolumen();
-    }
-
-    public static void main(String[] args) {
-        Caja c1 = new Caja(100, 100, 20, Unidad.M);
-        System.out.println(c1);
+                + etiqueta + "]";
     }
 
 }

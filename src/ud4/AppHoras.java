@@ -1,6 +1,5 @@
 package ud4;
 
-import ud4.clases.Persona;
 import ud4.herencia.Hora;
 import ud4.herencia.HoraExacta;
 
@@ -22,9 +21,6 @@ public class AppHoras {
         System.out.println(hora2.equals(hora3));
         System.out.println(hora3.equals(hora2));
         
-
-
-
         
     }
 }

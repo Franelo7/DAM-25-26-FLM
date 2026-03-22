@@ -3,7 +3,7 @@ package ud4.alumnado.ejerciciosanteriores;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-import ud3.strings.Util.Util;
+import ud3.strings.Util;
 
 public class AlumnoV01sLeerMostrarCSV {
     public static void main(String[] args) {

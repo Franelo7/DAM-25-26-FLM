@@ -98,6 +98,10 @@ abstract public class Monstruo {
     public static void main(String[] args) {
         Monstruo m1 = generaMonstruoAleatorio();
         m1.mostrar();
+        Personaje p1 = new Personaje("Payo");
+        m1.atacar(p1);
+        
+
     }
 
 }
