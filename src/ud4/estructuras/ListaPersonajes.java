@@ -2,24 +2,23 @@ package ud4.estructuras;
 
 import java.util.Arrays;
 
-import ud4.clases.Persona;
 import ud4.rol.Personaje;
 
-public class Lista {
-    Object[] elementos;
+public class ListaPersonajes {
+    Personaje[] elementos;
 
-    public Lista() {
-        elementos = new Object[0];
+    public ListaPersonajes() {
+        elementos = new Personaje[0];
     }
 
-    public boolean add(Object e) {
+    public boolean add(Personaje e) {
         elementos = Arrays.copyOf(elementos, elementos.length + 1);
         elementos[elementos.length - 1] = e;
         return true;
     }
 
     public void clear() {
-        elementos = new Object[0];
+        elementos = new Personaje[0];
     }
 
     @Override
@@ -27,11 +26,11 @@ public class Lista {
         return Arrays.toString(elementos);
     }
 
-    public Object get(int index) {
+    public Personaje get(int index) {
         return elementos[index];
     }
 
-    public boolean contains(Object element) {
+    public boolean contains(Personaje element) {
         for (int i = 0; i < elementos.length; i++) {
             if (elementos[i] == element) {
                 return true;
@@ -67,31 +66,25 @@ public class Lista {
     }
 
     public static void main(String[] args) {
-        Lista lista2 = new Lista();
-        lista2.add(new Persona());
-
-        Lista lista3 = new Lista();
-        lista3.add(new Personaje("Pepe"));        
-
-        Lista lista = new Lista();
-        lista.add(5);
-        lista.add(7);
-        lista.add(3);
+        ListaPersonajes lista = new ListaPersonajes();
+        lista.add(new Personaje("Pepe"));
+        lista.add(new Personaje("Pepe2"));
+        lista.add(new Personaje("Pepe3"));
         System.out.println(lista);
         int i = 1;
         System.out.println("Elemento en la posición " + i + ": " + lista.get(i));
-        if (lista.contains(7)) {
+        if (lista.contains(new Personaje("Pepe"))) {
             System.out.println("Hay un 7 en la lista");            
-            System.out.println("Está en el índice: " + lista.indexOf(7));
+            System.out.println("Está en el índice: " + lista.indexOf(new Personaje("Pepe2")));
         }
         System.out.println("Tamaño de la lista: " + lista.size());
             
-        Lista lista21 = new Lista();
-        lista21.add(5);
-        lista21.add(7);
-        lista21.add(3);        
+        ListaPersonajes lista2 = new ListaPersonajes();
+        lista2.add(new Personaje("Pepe"));
+        lista2.add(new Personaje("Pepe2"));
+        lista2.add(new Personaje("Pepe3"));        
 
-        System.out.println("Listas iguales?: " + lista.equals(lista21));
+        System.out.println("Listas iguales?: " + lista.equals(lista2));
 
         System.out.println("BORRAMOS LA LISTA");
         lista.clear();

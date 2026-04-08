@@ -1,4 +1,4 @@
-package ud3.strings.Util;
+package ud3.strings;
 
 import java.io.BufferedReader;
 import java.io.Console;

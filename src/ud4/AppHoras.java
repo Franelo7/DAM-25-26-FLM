@@ -20,7 +20,7 @@ public class AppHoras {
         Hora hora3 = new Hora(0, 1);
         System.out.println(hora2.equals(hora3));
         System.out.println(hora3.equals(hora2));
-        
+  
         
     }
 }
