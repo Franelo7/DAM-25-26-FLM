@@ -40,6 +40,19 @@ public class Persona implements Comparable {
     public int getEdad() {
         return Period.between(fechaNacimiento, LocalDate.now()).getYears();
     }
+    
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
 
     /*
     * OVERRIDES

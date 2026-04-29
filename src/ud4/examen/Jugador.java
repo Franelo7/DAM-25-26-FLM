@@ -21,6 +21,10 @@ public class Jugador extends Persona {
         this.posicion = posicion;
     }
 
+    public void setPosicion(Posicion posicion) {
+        this.posicion = posicion;
+    }
+
     /*
     * GETTERS
      */    

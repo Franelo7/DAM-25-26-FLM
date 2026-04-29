@@ -8,7 +8,7 @@ import java.time.temporal.ChronoUnit;
 public class Cliente implements Comparable<Cliente>{
     String dni;
     String nombre;
-    LocalDate fechaNacimiento;
+    public LocalDate fechaNacimiento;
     
     public Cliente(String dni, String nombre, String fechaNacimiento) {
         this.dni = dni;
@@ -29,10 +29,17 @@ public class Cliente implements Comparable<Cliente>{
         return (int) fechaNacimiento.until(LocalDate.now(), ChronoUnit.YEARS);
     }
 
+    
     /*@Override
     public boolean equals(Object obj) {
         return dni.equals(((Cliente)obj).dni);
     }*/
+
+
+
+    public String getNombre() {
+        return nombre;
+    }
 
 
 

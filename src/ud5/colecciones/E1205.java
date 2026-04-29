@@ -1,4 +1,4 @@
-package ud5;
+package ud5.colecciones;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,7 +9,7 @@ public class E1205 {
         Random rnd = new Random();
         Collection<Integer> numeros = new ArrayList<>();
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10; i++) {
             numeros.add(rnd.nextInt(10) + 1);
         }
 
